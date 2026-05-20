@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="placeholderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#placeholderGradient)"/>
+  <rect x="40" y="40" width="320" height="220" fill="#d1d5db" rx="8" opacity="0.3"/>
+  <circle cx="200" cy="120" r="40" fill="#9ca3af" opacity="0.4"/>
+  <rect x="100" y="180" width="200" height="12" fill="#9ca3af" opacity="0.4" rx="6"/>
+  <rect x="120" y="200" width="160" height="8" fill="#9ca3af" opacity="0.4" rx="4"/>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#6b7280" opacity="0.6">Project Image Placeholder</text>
+</svg>

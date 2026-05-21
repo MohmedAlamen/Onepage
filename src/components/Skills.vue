@@ -29,8 +29,8 @@
           <div class="flex items-center gap-3 mb-6">
             <div class="w-1 h-10 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full group-hover:scale-110 transition-transform"></div>
             <div>
-              <h3 class="text-2xl font-bold">Frontend</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">User Interface</p>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Frontend</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">User Interface</p>
             </div>
           </div>
           <div class="space-y-4">
@@ -46,8 +46,8 @@
           <div class="flex items-center gap-3 mb-6">
             <div class="w-1 h-10 bg-gradient-to-b from-purple-500 to-purple-600 rounded-full group-hover:scale-110 transition-transform"></div>
             <div>
-              <h3 class="text-2xl font-bold">Backend</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Server & Database</p>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Backend</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Server & Database</p>
             </div>
           </div>
           <div class="space-y-4">
@@ -63,8 +63,8 @@
           <div class="flex items-center gap-3 mb-6">
             <div class="w-1 h-10 bg-gradient-to-b from-orange-500 to-orange-600 rounded-full group-hover:scale-110 transition-transform"></div>
             <div>
-              <h3 class="text-2xl font-bold">DevOps</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Tools & Deployment</p>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">DevOps</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Tools & Deployment</p>
             </div>
           </div>
           <div class="space-y-4">
@@ -78,7 +78,7 @@
 
       <!-- Proficiency Levels -->
       <div class="mt-16 p-8 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-xl">
-        <h3 class="text-2xl font-bold mb-8 text-center">Experience Levels</h3>
+        <h3 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">Experience Levels</h3>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="text-5xl font-bold gradient-text mb-2">Expert</div>

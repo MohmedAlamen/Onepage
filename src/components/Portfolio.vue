@@ -65,7 +65,7 @@
       </div>
 
       <!-- Projects Grid -->
-      <div v-else class="">
+      <div v-else>
         <!-- Empty State -->
         <div v-if="displayedProjects.length === 0" class="text-center py-16">
           <div class="w-20 h-20 mx-auto mb-6 text-4xl opacity-50">📁</div>
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Projects Display -->
-        <div v-else class="">
+        <div v-else>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             <ProjectCard
               v-for="(project, index) in displayedProjects"
@@ -86,7 +86,7 @@
 
           <!-- Stats Section -->
           <div v-if="repos.length > 0" class="mt-16 p-8 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 rounded-2xl border border-blue-100 dark:border-slate-600">
-            <h3 class="text-2xl font-bold text-center mb-8">GitHub Statistics</h3>
+            <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">GitHub Statistics</h3>
             <div class="grid md:grid-cols-3 gap-8">
               <div class="text-center group">
                 <div class="text-5xl font-bold gradient-text mb-3 group-hover:scale-110 transition-transform">{{ repos.length }}</div>
@@ -239,134 +239,5 @@ onMounted(() => {
 
 .hover-lift:hover {
   transform: translateY(-2px);
-}
-</style>
-
-<script setup>
-import { ref, computed, onMounted } from 'vue'
-import ProjectCard from './ProjectCard.vue'
-import { githubAPI } from '../services/githubService'
-
-const loading = ref(false)
-const error = ref(null)
-const filterType = ref('all')
-const repos = ref([])
-
-const featuredProjects = [
-  {
-    id: 'featured-1',
-    name: 'Secure Chatbot Integration',
-    description: 'Developed a secure website integrated with a chatbot for an automobile client using HTML, CSS, JavaScript, and IBM Watson Assistant.',
-    image: '/assets/images/project-chatbot.svg',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Watson Assistant'],
-    link: '#',
-    type: 'featured',
-    stats: {
-      stars: 45,
-      forks: 12,
-      watchers: 8,
-    }
-  },
-  {
-    id: 'featured-2',
-    name: 'Sentiment Analyzer',
-    description: 'Developed and deployed a sentiment analyzer for the box reviews section of an eCommerce platform using IBM NLU.',
-    image: '/assets/images/project-sentiment.svg',
-    tags: ['Node.js', 'Watson NLU', 'React', 'MongoDB'],
-    link: '#',
-    type: 'featured',
-    stats: {
-      stars: 78,
-      forks: 23,
-      watchers: 15,
-    }
-  },
-  {
-    id: 'featured-3',
-    name: 'E-commerce Fashion Website',
-    description: 'Created a styled multi-page website for a new player in the fashion industry, integrated with a shopping cart and Stripe payment gateway.',
-    image: '/assets/images/project-fashion.svg',
-    tags: ['Vue.js', 'Stripe API', 'Bootstrap', 'Node.js'],
-    link: '#',
-    type: 'featured',
-    stats: {
-      stars: 102,
-      forks: 34,
-      watchers: 28,
-    }
-  }
-]
-
-const displayedProjects = computed(() => {
-  let projects = []
-  
-  if (filterType.value === 'featured') {
-    projects = featuredProjects
-  } else if (filterType.value === 'github') {
-    projects = repos.value
-  } else {
-    projects = [...featuredProjects, ...repos.value]
-  }
-  
-  // Sort by stars count (descending)
-  return projects.sort((a, b) => (b.stats?.stars || 0) - (a.stats?.stars || 0))
-})
-
-const fetchGitHubProjects = async () => {
-  loading.value = true
-  error.value = null
-  
-  try {
-    const response = await githubAPI.getRepos()
-    console.log('GitHub API Response:', response.data)
-    
-    // Filter and map GitHub projects
-    repos.value = response.data
-      .filter(repo => !repo.fork) // Only show non-forked repos
-      .sort((a, b) => b.stargazers_count - a.stargazers_count) // Sort by stars
-      .slice(0, 9) // Limit to 9 repos for better grid layout
-      .map(repo => ({
-        ...repo,
-        id: repo.id,
-        name: repo.name,
-        description: (repo.description || 'No description available').substring(0, 100) + (repo.description && repo.description.length > 100 ? '...' : ''),
-        image: '/assets/images/project-placeholder.svg',
-        tags: repo.language ? [repo.language] : ['Open Source'],
-        link: repo.html_url,
-        type: 'github',
-        stats: {
-          stars: repo.stargazers_count || 0,
-          forks: repo.forks_count || 0,
-          watchers: repo.watchers_count || 0,
-        },
-        updatedAt: new Date(repo.updated_at).toLocaleDateString('en-US')
-      }))
-    
-    console.log('Processed repos:', repos.value.length)
-  } catch (err) {
-    console.error('Failed to fetch GitHub repos:', err.message || err)
-    // Don't show error if featured projects exist - GitHub failure is not critical
-    if (featuredProjects.length === 0) {
-      error.value = 'Failed to load GitHub projects. Featured projects are available.'
-    }
-  } finally {
-    loading.value = false
-  }
-}
-
-onMounted(() => {
-  fetchGitHubProjects()
-})
-</script>
-
-<style scoped>
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
 }
 </style>

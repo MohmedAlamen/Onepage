@@ -25,7 +25,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-semibold text-lg mb-1">Email</h3>
+                <h3 class="font-semibold text-lg mb-1 text-gray-900 dark:text-white">Email</h3>
                 <a href="mailto:mohaalamen1234@gmail.com" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                   mohaalamen1234@gmail.com
                 </a>
@@ -40,9 +40,9 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-semibold text-lg mb-1">Phone</h3>
+                <h3 class="font-semibold text-lg mb-1 text-gray-900 dark:text-white">Phone</h3>
                 <a href="tel:+97451172313" class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors">
-                  +974 5117 2313
+                  +966 557579195
                 </a>
               </div>
             </div>
@@ -55,9 +55,9 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-semibold text-lg mb-1">Location</h3>
+                <h3 class="font-semibold text-lg mb-1 text-gray-900 dark:text-white">Location</h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                  Doha, Qatar
+                  Al Riyadh, Saudi Arabia
                 </p>
               </div>
             </div>
@@ -65,7 +65,7 @@
 
           <!-- Social Links -->
           <div class="pt-4 border-t border-gray-200 dark:border-slate-700">
-            <h3 class="font-semibold text-lg mb-4">Follow Me</h3>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-white">Follow Me</h3>
             <div class="flex gap-3">
               <a href="https://github.com/MohmedAlamen" target="_blank" class="group relative p-4 rounded-xl bg-gray-100 dark:bg-slate-800 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-600 text-gray-800 dark:text-white hover:text-white transition-all hover:scale-110 shadow-md hover:shadow-lg">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
         <!-- Contact Form -->
         <form @submit.prevent="submitForm" class="space-y-6 slide-in-right">
           <div class="space-y-2">
-            <label for="name" class="block text-sm font-semibold">Your Name</label>
+            <label for="name" class="block text-sm font-semibold text-gray-900 dark:text-white">Your Name</label>
             <input
               id="name"
               v-model="form.name"
@@ -101,7 +101,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="email" class="block text-sm font-semibold">Email Address</label>
+            <label for="email" class="block text-sm font-semibold text-gray-900 dark:text-white">Email Address</label>
             <input
               id="email"
               v-model="form.email"
@@ -113,7 +113,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="subject" class="block text-sm font-semibold">Subject</label>
+            <label for="subject" class="block text-sm font-semibold text-gray-900 dark:text-white">Subject</label>
             <input
               id="subject"
               v-model="form.subject"
@@ -125,7 +125,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="message" class="block text-sm font-semibold">Message</label>
+            <label for="message" class="block text-sm font-semibold text-gray-900 dark:text-white">Message</label>
             <textarea
               id="message"
               v-model="form.message"
